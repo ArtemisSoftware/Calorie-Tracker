@@ -3,6 +3,7 @@ object Modules {
     const val app = ":app"
 
     const val core = ":core"
+    const val coreUi = ":core_ui"
 
     const val onboardingDomain = ":feature:onboarding:domain"
     const val onboardingPresentation = ":feature:onboarding:presentation"

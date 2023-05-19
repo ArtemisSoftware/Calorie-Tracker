@@ -59,10 +59,15 @@ dependencies {
     implementation(Compose.uiToolingPreview)
     implementation(Compose.material3)
 
+
+    implementation(project(Modules.coreUi))
+
+
+
+
     testImplementation(Testing.junit)
     androidTestImplementation(Testing.extJunit)
     androidTestImplementation(Testing.espressoCore)
-
     androidTestImplementation(composeBom)
     androidTestImplementation(Testing.composeUiTestJunit4)
     debugImplementation(Testing.composeUiTooling)
