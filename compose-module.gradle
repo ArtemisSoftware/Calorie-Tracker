@@ -4,7 +4,7 @@ apply plugin: 'kotlin-android'
 //apply plugin: 'kotlin-parcelize'
 
 android {
-    namespace 'com.artemissoftware.calorietracker'
+    namespace project.name
     compileSdk ProjectConfig.compileSdk
 
     defaultConfig {
@@ -60,6 +60,7 @@ dependencies {
 //    kapt DaggerHilt.hiltCompiler
 //    implementation DaggerHilt.hiltAndroid
 //
+
     testImplementation Testing.junit
     testImplementation Testing.extJunit
 //    testImplementation Testing.truth

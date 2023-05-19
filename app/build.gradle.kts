@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.artemissoftware.calorietracker"
+    namespace = project.name
     compileSdk = ProjectConfig.compileSdk
 
     defaultConfig {
@@ -59,11 +59,7 @@ dependencies {
     implementation(Compose.uiToolingPreview)
     implementation(Compose.material3)
 
-
     implementation(project(Modules.coreUi))
-
-
-
 
     testImplementation(Testing.junit)
     androidTestImplementation(Testing.extJunit)
