@@ -11,4 +11,7 @@ object Compose {
     const val uiGraphics = "androidx.compose.ui:ui-graphics"
     const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview"
     const val material3 = "androidx.compose.material3:material3"
+
+    private const val navigationVersion = "2.4.0-beta02"
+    const val navigation = "androidx.navigation:navigation-compose:$navigationVersion"
 }

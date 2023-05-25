@@ -58,8 +58,19 @@ dependencies {
     implementation(Compose.uiGraphics)
     implementation(Compose.uiToolingPreview)
     implementation(Compose.material3)
+    implementation(Compose.navigation)
 
+
+
+    implementation(project(Modules.core))
     implementation(project(Modules.coreUi))
+    implementation(project(Modules.onboardingPresentation))
+//    implementation(project(Modules.onboardingDomain))
+//    implementation(project(Modules.trackerPresentation))
+//    implementation(project(Modules.trackerDomain))
+//    implementation(project(Modules.trackerData))
+
+
 
     testImplementation(Testing.junit)
     androidTestImplementation(Testing.extJunit)

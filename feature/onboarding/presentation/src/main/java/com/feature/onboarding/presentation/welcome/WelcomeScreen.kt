@@ -14,12 +14,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import com.artemissoftware.core.navigation.Route
+import com.artemissoftware.core.util.UiEvent
 import com.artemissoftware.core_ui.LocalSpacing
 import com.feature.onboarding.presentation.composables.ActionButton
 import core.R as CoreR
 
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(
+    onNavigate: (UiEvent.Navigate) -> Unit,
+) {
     val spacing = LocalSpacing.current
     Column(
         modifier = Modifier
@@ -36,7 +40,7 @@ fun WelcomeScreen() {
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
         ActionButton(
             text = stringResource(id = CoreR.string.welcome_text),
-            onClick = { /*TODO*/ },
+            onClick = { onNavigate(UiEvent.Navigate(Route.AGE)) },
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
     }
@@ -45,5 +49,5 @@ fun WelcomeScreen() {
 @Preview(showBackground = true)
 @Composable
 private fun WelcomeScreenPreview() {
-    WelcomeScreen()
+    WelcomeScreen(onNavigate = {})
 }
