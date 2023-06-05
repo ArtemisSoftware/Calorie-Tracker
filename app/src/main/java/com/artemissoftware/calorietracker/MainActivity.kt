@@ -9,8 +9,10 @@ import androidx.navigation.compose.rememberNavController
 import com.artemissoftware.calorietracker.navigation.navigate
 import com.artemissoftware.calorietracker.ui.theme.CalorieTrackerTheme
 import com.artemissoftware.core.navigation.Route
+import com.feature.onboarding.presentation.activity.ActivityScreen
 import com.feature.onboarding.presentation.age.AgeScreen
 import com.feature.onboarding.presentation.gender.GenderScreen
+import com.feature.onboarding.presentation.goal.GoalScreen
 import com.feature.onboarding.presentation.height.HeightScreen
 import com.feature.onboarding.presentation.weight.WeightScreen
 import com.feature.onboarding.presentation.welcome.WelcomeScreen
@@ -45,8 +47,10 @@ class MainActivity : ComponentActivity() {
                     composable(Route.NUTRIENT_GOAL) {
                     }
                     composable(Route.ACTIVITY) {
+                        ActivityScreen(onNavigate = navController::navigate)
                     }
                     composable(Route.GOAL) {
+                        GoalScreen(onNavigate = navController::navigate)
                     }
 
                     composable(Route.TRACKER_OVERVIEW) {
