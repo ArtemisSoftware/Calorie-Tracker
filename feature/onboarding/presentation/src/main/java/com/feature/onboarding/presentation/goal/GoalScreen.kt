@@ -1,9 +1,8 @@
 package com.feature.onboarding.presentation.goal
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -23,7 +22,7 @@ import core.R as CoreR
 @Composable
 fun GoalScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
-    viewModel: GoalViewModel = hiltViewModel()
+    viewModel: GoalViewModel = hiltViewModel(),
 ) {
     val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
@@ -37,16 +36,16 @@ fun GoalScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(spacing.spaceLarge)
+            .padding(spacing.spaceLarge),
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = stringResource(id = CoreR.string.lose_keep_or_gain_weight),
-                style = MaterialTheme.typography.h3
+                style = MaterialTheme.typography.displayMedium, /*h3*/
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             Row {
@@ -59,8 +58,8 @@ fun GoalScreen(
                         viewModel.onGoalTypeSelect(GoalType.LoseWeight)
                     },
                     textStyle = MaterialTheme.typography.bodySmall /*button*/.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+                        fontWeight = FontWeight.Normal,
+                    ),
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 SelectableButton(
@@ -72,8 +71,8 @@ fun GoalScreen(
                         viewModel.onGoalTypeSelect(GoalType.KeepWeight)
                     },
                     textStyle = MaterialTheme.typography.bodySmall /*button*/.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+                        fontWeight = FontWeight.Normal,
+                    ),
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 SelectableButton(
@@ -85,15 +84,15 @@ fun GoalScreen(
                         viewModel.onGoalTypeSelect(GoalType.GainWeight)
                     },
                     textStyle = MaterialTheme.typography.bodySmall /*button*/.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+                        fontWeight = FontWeight.Normal,
+                    ),
                 )
             }
         }
         ActionButton(
             text = stringResource(id = CoreR.string.next),
             onClick = viewModel::onNextClick,
-            modifier = Modifier.align(Alignment.BottomEnd)
+            modifier = Modifier.align(Alignment.BottomEnd),
         )
     }
 }

@@ -1,6 +1,5 @@
 package com.feature.onboarding.presentation.activity
 
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -23,7 +22,7 @@ import core.R as CoreR
 @Composable
 fun ActivityScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
-    viewModel: ActivityViewModel = hiltViewModel()
+    viewModel: ActivityViewModel = hiltViewModel(),
 ) {
     val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
@@ -37,16 +36,16 @@ fun ActivityScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(spacing.spaceLarge)
+            .padding(spacing.spaceLarge),
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = stringResource(id = CoreR.string.whats_your_activity_level),
-                style = MaterialTheme.typography.displayMedium /*h3*/
+                style = MaterialTheme.typography.displayMedium, /*h3*/
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             Row {
@@ -58,9 +57,9 @@ fun ActivityScreen(
                     onClick = {
                         viewModel.onActivityLevelSelect(ActivityLevel.Low)
                     },
-                    textStyle = MaterialTheme.typography.button.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+                    textStyle = MaterialTheme.typography.bodySmall /*button*/.copy(
+                        fontWeight = FontWeight.Normal,
+                    ),
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 SelectableButton(
@@ -71,9 +70,9 @@ fun ActivityScreen(
                     onClick = {
                         viewModel.onActivityLevelSelect(ActivityLevel.Medium)
                     },
-                    textStyle = MaterialTheme.typography.button.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+                    textStyle = MaterialTheme.typography.bodySmall /*button*/.copy(
+                        fontWeight = FontWeight.Normal,
+                    ),
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 SelectableButton(
@@ -85,15 +84,15 @@ fun ActivityScreen(
                         viewModel.onActivityLevelSelect(ActivityLevel.High)
                     },
                     textStyle = MaterialTheme.typography.bodySmall /*button*/.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+                        fontWeight = FontWeight.Normal,
+                    ),
                 )
             }
         }
         ActionButton(
             text = stringResource(id = CoreR.string.next),
             onClick = viewModel::onNextClick,
-            modifier = Modifier.align(Alignment.BottomEnd)
+            modifier = Modifier.align(Alignment.BottomEnd),
         )
     }
 }

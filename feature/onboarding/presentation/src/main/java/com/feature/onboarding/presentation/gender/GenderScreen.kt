@@ -22,7 +22,7 @@ import core.R as CoreR
 @Composable
 fun GenderScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
-    viewModel: GenderViewModel = hiltViewModel()
+    viewModel: GenderViewModel = hiltViewModel(),
 ) {
     val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
@@ -36,16 +36,16 @@ fun GenderScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(spacing.spaceLarge)
+            .padding(spacing.spaceLarge),
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = stringResource(id = CoreR.string.whats_your_gender),
-                style = MaterialTheme.typography.displayMedium /*h3*/
+                style = MaterialTheme.typography.displayMedium, /*h3*/
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             Row {
@@ -58,8 +58,8 @@ fun GenderScreen(
                         viewModel.onGenderClick(Gender.Male)
                     },
                     textStyle = MaterialTheme.typography.bodySmall /*button*/.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+                        fontWeight = FontWeight.Normal,
+                    ),
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
                 SelectableButton(
@@ -71,15 +71,15 @@ fun GenderScreen(
                         viewModel.onGenderClick(Gender.Female)
                     },
                     textStyle = MaterialTheme.typography.bodySmall /*button*/.copy(
-                        fontWeight = FontWeight.Normal
-                    )
+                        fontWeight = FontWeight.Normal,
+                    ),
                 )
             }
         }
         ActionButton(
             text = stringResource(id = CoreR.string.next),
             onClick = viewModel::onNextClick,
-            modifier = Modifier.align(Alignment.BottomEnd)
+            modifier = Modifier.align(Alignment.BottomEnd),
         )
     }
 }
