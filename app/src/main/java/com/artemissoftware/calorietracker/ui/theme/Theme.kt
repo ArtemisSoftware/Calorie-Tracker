@@ -16,8 +16,15 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.artemissoftware.core_ui.BrightGreen
+import com.artemissoftware.core_ui.DarkGray
+import com.artemissoftware.core_ui.DarkGreen
 import com.artemissoftware.core_ui.Dimensions
+import com.artemissoftware.core_ui.LightGray
 import com.artemissoftware.core_ui.LocalSpacing
+import com.artemissoftware.core_ui.MediumGray
+import com.artemissoftware.core_ui.Orange
+import com.artemissoftware.core_ui.TextWhite
 
 private val DarkColorPalette = darkColorScheme(
     primary = BrightGreen,

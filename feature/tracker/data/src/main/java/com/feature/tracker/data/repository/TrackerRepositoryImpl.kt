@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import java.time.LocalDate
 
-class TrackerRepositoryImpl(
+class TrackerRepositoryImpl constructor(
     private val dao: TrackerDao,
     private val api: OpenFoodApi,
 ) : TrackerRepository {

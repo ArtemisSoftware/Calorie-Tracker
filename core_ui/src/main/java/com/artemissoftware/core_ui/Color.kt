@@ -1,4 +1,4 @@
-package com.artemissoftware.calorietracker.ui.theme
+package com.artemissoftware.core_ui
 
 import androidx.compose.ui.graphics.Color
 
