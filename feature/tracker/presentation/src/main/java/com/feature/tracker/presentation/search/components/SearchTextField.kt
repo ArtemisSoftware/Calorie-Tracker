@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.artemissoftware.core_ui.LocalSpacing
 import core.R as CoreR
@@ -37,11 +38,11 @@ fun SearchTextField(
     modifier: Modifier = Modifier,
     hint: String = stringResource(id = CoreR.string.search),
     shouldShowHint: Boolean = false,
-    onFocusChanged: (FocusState) -> Unit
+    onFocusChanged: (FocusState) -> Unit,
 ) {
     val spacing = LocalSpacing.current
     Box(
-        modifier = modifier
+        modifier = modifier,
     ) {
         BasicTextField(
             value = text,
@@ -51,25 +52,25 @@ fun SearchTextField(
                 onSearch = {
                     onSearch()
                     defaultKeyboardAction(ImeAction.Search)
-                }
+                },
             ),
             keyboardOptions = KeyboardOptions(
-                imeAction = ImeAction.Search
+                imeAction = ImeAction.Search,
             ),
             modifier = Modifier
                 .clip(RoundedCornerShape(5.dp))
                 .padding(2.dp)
                 .shadow(
                     elevation = 2.dp,
-                    shape = RoundedCornerShape(5.dp)
+                    shape = RoundedCornerShape(5.dp),
                 )
                 .background(MaterialTheme.colorScheme.surface)
                 .fillMaxWidth()
                 .padding(spacing.spaceMedium)
                 .padding(end = spacing.spaceMedium)
-                .onFocusChanged { onFocusChanged(it) }
+                .onFocusChanged { onFocusChanged(it) },
         )
-        if(shouldShowHint) {
+        if (shouldShowHint) {
             Text(
                 text = hint,
                 style = MaterialTheme.typography.bodyMedium, /*body1*/
@@ -77,16 +78,16 @@ fun SearchTextField(
                 color = Color.LightGray,
                 modifier = Modifier
                     .align(Alignment.CenterStart)
-                    .padding(start = spacing.spaceMedium)
+                    .padding(start = spacing.spaceMedium),
             )
         }
         IconButton(
             onClick = onSearch,
-            modifier = Modifier.align(Alignment.CenterEnd)
+            modifier = Modifier.align(Alignment.CenterEnd),
         ) {
             Icon(
                 imageVector = Icons.Default.Search,
-                contentDescription = stringResource(id = CoreR.string.search)
+                contentDescription = stringResource(id = CoreR.string.search),
             )
         }
     }
