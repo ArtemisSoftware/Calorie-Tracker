@@ -1,22 +1,30 @@
 package com.feature.tracker.presentation.search
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.artemissoftware.core.util.UiEvent
 import com.artemissoftware.core_ui.LocalSpacing
+import com.feature.tracker.domain.model.MealType
 import com.feature.tracker.presentation.search.components.SearchTextField
+import com.feature.tracker.presentation.search.components.TrackableFoodItem
 import kotlinx.coroutines.flow.collect
+import java.time.LocalDate
 import core.R as CoreR
 
 @ExperimentalComposeUiApi
@@ -72,5 +80,50 @@ fun SearchScreen(
                 viewModel.onEvent(SearchEvent.OnSearchFocusChange(it.isFocused))
             },
         )
+        Spacer(modifier = Modifier.height(spacing.spaceMedium))
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
+            items(state.trackableFood) { food ->
+                TrackableFoodItem(
+                    trackableFoodUiState = food,
+                    onClick = {
+                        viewModel.onEvent(SearchEvent.OnToggleTrackableFood(food.food))
+                    },
+                    onAmountChange = {
+                        viewModel.onEvent(
+                            SearchEvent.OnAmountForFoodChange(
+                                food.food,
+                                it,
+                            ),
+                        )
+                    },
+                    onTrack = {
+                        viewModel.onEvent(
+                            SearchEvent.OnTrackFoodClick(
+                                food = food.food,
+                                mealType = MealType.fromString(mealName),
+                                date = LocalDate.of(year, month, dayOfMonth),
+                            ),
+                        )
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
+        }
+
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center,
+        ) {
+            when {
+                state.isSearching -> CircularProgressIndicator()
+                state.trackableFood.isEmpty() -> {
+                    Text(
+                        text = stringResource(id = CoreR.string.no_results),
+                        style = MaterialTheme.typography.bodyMedium /*body1*/,
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            }
+        }
     }
 }
