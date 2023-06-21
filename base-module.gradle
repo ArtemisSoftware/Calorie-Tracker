@@ -39,20 +39,20 @@ dependencies {
 
     testImplementation Testing.junit
     testImplementation Testing.extJunit
-//    testImplementation Testing.truth
+    testImplementation Testing.truth
 //    testImplementation Testing.coroutines
 //    testImplementation Testing.turbine
 //    testImplementation Testing.composeUiTest
-//    testImplementation Testing.mockk
+    testImplementation Testing.mockk
 //    testImplementation Testing.mockWebServer
 
     androidTestImplementation Testing.junit
     androidTestImplementation Testing.extJunit
-//    androidTestImplementation Testing.truth
+    androidTestImplementation Testing.truth
 //    androidTestImplementation Testing.coroutines
 //    androidTestImplementation Testing.turbine
 //    androidTestImplementation Testing.composeUiTest
-//    androidTestImplementation Testing.mockk
+    androidTestImplementation Testing.mockk
 //    androidTestImplementation Testing.mockWebServer
 //    androidTestImplementation Testing.hiltTesting
 }
