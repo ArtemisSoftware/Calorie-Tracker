@@ -112,20 +112,19 @@ fun SearchScreen(
                 )
             }
         }
-
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center,
-        ) {
-            when {
-                state.isSearching -> CircularProgressIndicator()
-                state.trackableFood.isEmpty() -> {
-                    Text(
-                        text = stringResource(id = CoreR.string.no_results),
-                        style = MaterialTheme.typography.bodyMedium /*body1*/,
-                        textAlign = TextAlign.Center,
-                    )
-                }
+    }
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
+    ) {
+        when {
+            state.isSearching -> CircularProgressIndicator()
+            state.trackableFood.isEmpty() -> {
+                Text(
+                    text = stringResource(id = CoreR.string.no_results),
+                    style = MaterialTheme.typography.bodyMedium /*body1*/,
+                    textAlign = TextAlign.Center,
+                )
             }
         }
     }

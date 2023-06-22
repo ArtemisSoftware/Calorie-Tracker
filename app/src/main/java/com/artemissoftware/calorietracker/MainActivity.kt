@@ -112,7 +112,8 @@ class MainActivity : ComponentActivity() {
                             month = month,
                             year = year,
                             onNavigateUp = {
-                                navController.navigateUp()
+                                //navController.navigateUp()
+                                           navController.popBackStack()
                             },
                         )
                     }
