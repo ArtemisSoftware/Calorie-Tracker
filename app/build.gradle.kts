@@ -16,7 +16,7 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.artemissoftware.calorietracker.HiltTestRunner "
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -74,6 +74,7 @@ dependencies {
     implementation(project(Modules.trackerData))
 
 
+    implementation(Coil.coilCompose)
 
     testImplementation(Testing.junit)
     androidTestImplementation(Testing.extJunit)
@@ -82,4 +83,28 @@ dependencies {
     androidTestImplementation(Testing.composeUiTestJunit4)
     debugImplementation(Testing.composeUiTooling)
     debugImplementation(Testing.composeUiTestManifest)
+
+
+
+
+//    testImplementation(Testing.junit4)
+//    testImplementation(Testing.junitAndroidExt)
+    testImplementation(Testing.truth)
+//    testImplementation(Testing.coroutines)
+//    testImplementation(Testing.turbine)
+//    testImplementation(Testing.composeUiTest)
+    testImplementation(Testing.mockk)
+//    testImplementation(Testing.mockWebServer)
+//
+//    androidTestImplementation(Testing.junit4)
+//    androidTestImplementation(Testing.junitAndroidExt)
+    androidTestImplementation(Testing.truth)
+//    androidTestImplementation(Testing.coroutines)
+//    androidTestImplementation(Testing.turbine)
+//    androidTestImplementation(Testing.composeUiTest)
+    androidTestImplementation(Testing.mockkAndroid)
+//    androidTestImplementation(Testing.mockWebServer)
+    androidTestImplementation(Testing.hiltTesting)
+    kaptAndroidTest(DaggerHilt.hiltCompiler)
+    androidTestImplementation(Testing.testRunner)
 }

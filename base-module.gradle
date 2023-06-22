@@ -54,5 +54,5 @@ dependencies {
 //    androidTestImplementation Testing.composeUiTest
     androidTestImplementation Testing.mockk
     androidTestImplementation Testing.mockWebServer
-//    androidTestImplementation Testing.hiltTesting
+    androidTestImplementation Testing.hiltTesting
 }

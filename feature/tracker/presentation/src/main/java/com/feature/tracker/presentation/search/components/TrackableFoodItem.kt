@@ -25,6 +25,8 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
@@ -99,7 +101,7 @@ fun TrackableFoodItem(
                             id = CoreR.string.kcal_per_100g,
                             food.caloriesPer100g,
                         ),
-                        style = MaterialTheme.typography.bodyMedium,/*body2*/
+                        style = MaterialTheme.typography.bodyMedium, /*body2*/
                     )
                 }
             }
@@ -110,7 +112,7 @@ fun TrackableFoodItem(
                     unit = stringResource(id = CoreR.string.grams),
                     amountTextSize = 16.sp,
                     unitTextSize = 12.sp,
-                    nameTextStyle = MaterialTheme.typography.bodyMedium,/*body2*/
+                    nameTextStyle = MaterialTheme.typography.bodyMedium, /*body2*/
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceSmall))
                 NutrientInfo(
@@ -119,7 +121,7 @@ fun TrackableFoodItem(
                     unit = stringResource(id = CoreR.string.grams),
                     amountTextSize = 16.sp,
                     unitTextSize = 12.sp,
-                    nameTextStyle = MaterialTheme.typography.bodyMedium,/*body2*/
+                    nameTextStyle = MaterialTheme.typography.bodyMedium, /*body2*/
                 )
                 Spacer(modifier = Modifier.width(spacing.spaceSmall))
                 NutrientInfo(
@@ -128,7 +130,7 @@ fun TrackableFoodItem(
                     unit = stringResource(id = CoreR.string.grams),
                     amountTextSize = 16.sp,
                     unitTextSize = 12.sp,
-                    nameTextStyle = MaterialTheme.typography.bodyMedium,/*body2*/
+                    nameTextStyle = MaterialTheme.typography.bodyMedium, /*body2*/
                 )
             }
         }
@@ -166,7 +168,10 @@ fun TrackableFoodItem(
                                 color = MaterialTheme.colorScheme.onSurface,
                             )
                             .alignBy(LastBaseline)
-                            .padding(spacing.spaceMedium),
+                            .padding(spacing.spaceMedium)
+                            .semantics {
+                                contentDescription = "Amount"
+                            },
                     )
                     Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
                     Text(
